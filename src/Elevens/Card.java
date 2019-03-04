@@ -25,7 +25,12 @@ public class Card
 
 	// modifiers
 		//set methods
-        
+        public void setSuit(String Suit) {
+            suit = Suit;
+        }
+        public void setFace(int Face) {
+            face = Face;
+        }
 
   	//accessors
 		//get methods

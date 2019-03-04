@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 //make a Deck class
-
+class Deck {
 	public static final int NUMCARDS = 52;
 	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
 	
@@ -31,3 +31,4 @@ import java.util.Collections;
    //write a shuffle() method
    	//use Colletions.shuffle
    	//reset the top card 
+}
