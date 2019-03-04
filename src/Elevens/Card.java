@@ -43,6 +43,6 @@ public class Card
 
   	//toString
         public String toString() {
-            return suit + " of " + FACES[face];
+            return getSuit() + " of " + FACES[getFace()];
         }
  }

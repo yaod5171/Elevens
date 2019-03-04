@@ -12,7 +12,7 @@ import java.util.Collections;
 //make a Deck class
 class Deck {
 	public static final int NUMCARDS = 52;
-	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
+	public static final String[] SUITS = "CLUBS DIAMONDS HEARTS SPADES".split(" ");
 	
 	private List<Card> cards;
 	private int top;
@@ -24,11 +24,26 @@ class Deck {
    	//loop through all suits
    		//loop through all faces 1 to 13
    			//add a new TwentyOneCard to the deck
+        
+        public Deck() {
+            cards = new ArrayList();
+            for (int i = 0; i < NUMCARDS; i++) {
+                cards.add(new Card(SUITS[i/13], i%13+1));
+            }
+            top = NUMCARDS-1;
+        }
 
    
    //make a dealCard() method that returns the top card
+        public Card dealCard() {
+            return cards.get(top--);
+        }
    
    //write a shuffle() method
    	//use Colletions.shuffle
    	//reset the top card 
+        public void shuffle() {
+            Collections.shuffle(cards);
+            top = NUMCARDS-1;
+        }
 }
