@@ -183,6 +183,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
     /**
      * Draw the display (cards and messages).
      */
+    @Override
     public void repaint() {
         for (int k = 0; k < board.size(); k++) {
             String cardImageFileName
@@ -336,6 +337,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
      *
      * @param e the button click action event
      */
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(replaceButton)) {
             // Gather all the selected cards.
