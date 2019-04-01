@@ -73,16 +73,27 @@ public class ElevensSimulation {
         for (int i = 0; i < gamesToPlay; i++) {
             board.newGame();
             while (board.anotherPlayIsPossible()) {
-                int[] move = {}; 
+                List<Integer> move = new ArrayList(); 
                 
                 //will prioritize JQK over pairSum11
-                if (findJQK(board) != null) move = findJQK(board);
-                else move = findPairSum11(board);
+                if (findJQK(board) != null) {
+                    for (int m: findJQK(board)) {
+                        move.add(m); //convert array to List for isLegal, etc.
+                    }
+                } else {
+                    for (int m: findPairSum11(board)) {
+                        move.add(m);
+                    }
+                }
                 
-                if (board.isLegal(Arrays.asList(move))) {
-                    
+                if (board.isLegal(move)) {
+                    board.replaceSelectedCards(move);
                 }
             }
+            if (board.gameIsWon()) {
+                wins++;
+            }
         }
+        System.out.println((gamesToPlay + " games, " + wins + " wins"));
     }
 }
