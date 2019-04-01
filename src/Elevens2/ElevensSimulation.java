@@ -70,6 +70,7 @@ public class ElevensSimulation {
         scan.nextLine();
         
         int wins = 0;
+        int errors = 0;
         for (int i = 0; i < gamesToPlay; i++) {
             board.newGame();
             while (board.anotherPlayIsPossible()) {
@@ -88,12 +89,24 @@ public class ElevensSimulation {
                 
                 if (board.isLegal(move)) {
                     board.replaceSelectedCards(move);
+                } else {
+                    System.out.println(i);
+                    for (int j = 0; j < 9; j++) {
+                        System.out.print(board.cardAt(j) + " ");
+                    }
+                    System.out.println(move);
+                    System.out.println(board.anotherPlayIsPossible());
+                    for (int k: move) {
+                        System.out.println(board.cardAt(k));
+                    }
+                    errors++;
+                    break;
                 }
             }
             if (board.gameIsWon()) {
                 wins++;
             }
         }
-        System.out.println((gamesToPlay + " games, " + wins + " wins"));
+        System.out.println((gamesToPlay + " games, " + wins + " wins " + errors + " errors"));
     }
 }
